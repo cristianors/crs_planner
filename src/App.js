@@ -1,23 +1,16 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Header from './components/header';
 import UserContext from './utilities/userContext';
 import {BrowserRouter}  from 'react-router-dom';
 import Routes from './route/routes';
 
-class App extends Component {
+function App(){  
 
-  constructor(props){
-    super(props);
-    this.state = {
-      user: "Cristiano"  
-    };
-  }
-
-  render(){
+   var [user, setUser] = useState("Cristiano");
 
     return (
       <BrowserRouter>
-      <UserContext.Provider value={{user: this.state.user}}>
+      <UserContext.Provider value={{user: user}}>
       <div className="App container-fluid p-0">
           <Header></Header>
           <Routes></Routes>    
@@ -25,8 +18,6 @@ class App extends Component {
       </UserContext.Provider>
       </BrowserRouter>
     );
-
-  }
 
 }
 

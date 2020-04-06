@@ -1,10 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Create extends Component{
+function Create(){
 
-    render(){
-
-       return(
+    return(
            <div className="col-md-6 offset-md-1 p-4">
 
             <form>
@@ -27,9 +25,6 @@ class Create extends Component{
 
             </div>
        )     
-
-    }
-
 }
 
 export default Create;
