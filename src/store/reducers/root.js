@@ -1,34 +1,14 @@
-const initState = {
-    todos: [{id: 1, designation: "todo 1", description: "todo 1 description", date: "07/04/2020"},
-            {id: 2, designation: "todo 2", description: "todo 2 description", date: "08/04/2020"},
-            {id: 3, designation: "todo 3", description: "todo 3 description", date: "09/04/2020"}
-    ],
-    tobuys: [],
-    events: [],
-    learns: []
-}
+import todoReducer from './todo';
+import tobuyReducer from './tobuys';
+import eventReducer from './events';
+import learnReducer from './learn';
+import {combineReducers} from 'redux';
 
-const rootReducer = (state = initState, action) => {
-
-    let todos
-
-    switch( action.type ){
-
-        case "DELETE_TODO": 
-            todos = state.todos.filter( todo => {return todo.id != action.id} );
-            return {
-                ...state,
-                todos
-            }
-        case "ADD_TODO":
-            todos = [...state.todos, action.todo]
-            return {
-                ...state,
-                todos
-            }
-    }
-
-    return state;
-}
+const rootReducer = combineReducers({
+    todos: todoReducer,
+    tobuys: tobuyReducer,
+    events: eventReducer,
+    learn: learnReducer
+});
 
 export default rootReducer;

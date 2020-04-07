@@ -61,7 +61,7 @@ function Todo(props){
 const mapStateToProps = (state) => {
 
     return {
-        todos: state.todos
+        todos: state.todos.todos
     }
 
 }
