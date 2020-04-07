@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ErrorHandler from './error/errorhandler';
+import store from './store/store';
+import {Provider} from 'react-redux';
 
 ReactDOM.render(
   <React.StrictMode>
     <ErrorHandler>
-      <App />
+    <Provider store={store}>
+        <App />
+        </Provider>
     </ErrorHandler>
   </React.StrictMode>,
   document.getElementById('root')
