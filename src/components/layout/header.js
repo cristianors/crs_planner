@@ -1,5 +1,5 @@
 import React from 'react';
-import UserContext from '../utilities/userContext';
+import UserContext from '../../utilities/userContext';
 import {Link}  from 'react-router-dom';
 
 function Header(){

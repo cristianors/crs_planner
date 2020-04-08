@@ -1,6 +1,6 @@
 import React from 'react';
 import {Route, Switch}  from 'react-router-dom';
-import Home from '../components/home';
+import Home from '../components/layout/home';
 import Todo from '../components/do/todo';
 import ToBuy from '../components/buy/tobuy';
 import Events from '../components/events/events';

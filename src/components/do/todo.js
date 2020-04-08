@@ -1,11 +1,13 @@
 import React, {useState,useEffect} from 'react';
-import List from '../list';
+import List from '../layout/list';
 import Create from './create';
+import Details from '../layout/details';
 import {connect} from 'react-redux';
 import {deleteTodo, addTodo} from '../../store/actions/todos';
 
 function Todo(props){
 
+    var [selectedID, setID] = useState(-1);
     let [todo, setTodo] = useState({id: "", designation: "", description: "", date: ""});
 
     //Component did Mount
@@ -43,6 +45,10 @@ function Todo(props){
         event.preventDefault();
     }
 
+    const handleSelect = (id) => {
+        setID(id);
+    }
+
     const handleDelete = (id) => {
         props.delete(id);    
     }
@@ -50,8 +56,9 @@ function Todo(props){
     return (
             <section className="row pt-5">
                 <div className="col-md-4 p-4 text-center pl-5">
-                    <List list="To Do" items={props.todos} deleteItem={handleDelete}/>
+                    <List id={selectedID} list="To Do" items={props.todos} selectItem={handleSelect}/>
                 </div>
+                <Details item={props.todos.find(todo => todo.id == selectedID)} deleteItem={handleDelete}/>
                 <Create handleChange={handleChange} handleSubmit={handleSubmit}/>
             </section>    
         );

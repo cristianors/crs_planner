@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import List from '../list';
+import List from '../layout/list';
+import Details from '../layout/details';
 import Create from './create';
 import {connect} from 'react-redux';
 import {deleteLearning, addLearning} from '../../store/actions/learn';
 
 function Learn (props){
 
+    let [selectedID, setID] = useState(-1);
     let [learning, setLearning] = useState({designation: "", obs: ""});
 
     const handleChange = (event) => {
@@ -21,6 +23,10 @@ function Learn (props){
         props.add(learning);
     }
 
+    const handleSelect = (id) => {
+        setID(id);
+    }
+
     const handleDelete = (id) => {
         props.delete(id);
     }
@@ -28,8 +34,9 @@ function Learn (props){
     return (
             <section className="row pt-5">
                 <div className="col-md-4 p-4 text-center pl-5">
-                    <List list="Learn" items={props.learnings} deleteItem={handleDelete}/>
+                    <List list="Learn" items={props.learnings} selectItem={handleSelect}/>
                 </div>
+                <Details item={props.learnings.find(learning => learning.id === selectedID)} deleteItem={handleDelete}/>
                 <Create handleChange={handleChange} handleSubmit={handleSubmit}/>
             </section>    
         )
