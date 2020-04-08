@@ -8,13 +8,13 @@ function Home(props){
 
         <section className="row text-center pt-5">
             <div className="col-md-4 p-4">
-              <List list="To Do" deleteItem={() => {}} items={props.todos}/>
+              <List list="To Do" selectItem={() => {}} items={props.todos}/>
             </div>
             <div className="col-md-4 p-4">
-              <List list="To Buy" deleteItem={() => {}} items={props.tobuys}/>
+              <List list="To Buy" selectItem={() => {}} items={props.tobuys}/>
             </div>
             <div className="col-md-4 p-4">
-              <List list="Events" deleteItem={() => {}} items={props.events}/>
+              <List list="Events" selectItem={() => {}} items={props.events}/>
             </div>
           </section>
 

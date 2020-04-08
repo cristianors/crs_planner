@@ -25,24 +25,13 @@ function Todo(props){
 
     //On Change Event
     const handleChange = (event) => {
-
-        const value = event.target.value
-
-        if( event.target.id === "designation" )
-            setTodo({...todo, designation: value });
-        else if( event.target.id === "description" )
-            setTodo({...todo, description: value });
-        else if( event.target.id === "date" )
-            setTodo({...todo, date: value });    
-    
+        setTodo({...todo, [event.target.id]: event.target.value});
     }
 
     const handleSubmit = (event) => {
-        
-        if( todo.designation !== "" && todo.description !== "" && todo.date !== "" )
-           props.add(todo); 
-
         event.preventDefault();
+        if( todo.designation !== "" && todo.description !== "" && todo.date !== "" )
+           props.add(todo);
     }
 
     const handleSelect = (id) => {

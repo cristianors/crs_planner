@@ -11,12 +11,7 @@ function ToBuy(props){
     let [tobuy, setTobuy] = useState({designation: "", description: ""});
 
     const handleChange = (event) => {
-        const value = event.target.value;
-        if( event.target.id === "designation" )
-            setTobuy({...tobuy, designation: value});
-        else if( event.target.id === "description" )
-            setTobuy({...tobuy, description: value});
-        
+            setTobuy({...tobuy, [event.target.id]: event.target.value});
     }
     
     const handleSubmit = (event) => {

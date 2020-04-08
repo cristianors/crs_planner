@@ -11,11 +11,7 @@ function Learn (props){
     let [learning, setLearning] = useState({designation: "", obs: ""});
 
     const handleChange = (event) => {
-        let value = event.target.value;
-        if( event.target.id === "designation" )
-             setLearning({...learning, designation: value});
-        else if( event.target.id === "obs" )
-            setLearning({...learning, obs: value});    
+        setLearning({...learning, [event.target.id]: event.target.value});
     }
 
     const handleSubmit = (event) => {

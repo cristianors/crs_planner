@@ -11,13 +11,7 @@ function Events(props){
     let [item, setEvent] = useState({designation: "", description: "", date: ""});
 
     const handleChange = (event) => {
-        let value = event.target.value;
-        if( event.target.id === "designation" )
-            setEvent({...item, designation: value});
-        else if( event.target.id === "description" )
-            setEvent({...item, description: value});
-        else if( event.target.id === "date" )
-            setEvent({...item, date: value});    
+        setEvent({...item, [event.target.id]: event.target.value});
     }
 
     const handleSubmit = (event) => {

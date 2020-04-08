@@ -13,7 +13,7 @@ function Create(props){
                 <div className="form-group">
                     <label htmlFor="description">Description</label>
                     <input type="text" className="form-control" id="description" aria-describedby="descriptionHelp" onChange={props.handleChange}/>
-                    <small id="descriptionHelp" className="form-text text-muted">Describes the item.</small>
+                    <small id="descriptionHelp" className="form-text text-muted">Describe the item.</small>
                 </div>
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
