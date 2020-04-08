@@ -20,7 +20,7 @@ const todoReducer = (state = initState, action) => {
             }
 
         case "DELETE_TODO": 
-            todos = state.todos.filter( todo => {return todo.id != action.id} );
+            todos = state.todos.filter( todo => {return todo.id !== action.id} );
             return {
                 ...state,
                 todos

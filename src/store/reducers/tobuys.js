@@ -12,9 +12,9 @@ const tobuyReducer = (state = initState, action) => {
 
     switch( action.type ){
 
-        case "ADD_TOBUY":
-            console.log("Added tobuy");
-            break;
+        case "ADD_BUY":
+            tobuys = [...state.tobuys, action.tobuy];
+            return {tobuys};
         case "DELETE_BUY":
             tobuys = state.tobuys.filter(item => {return item.id !== action.id});
             return {

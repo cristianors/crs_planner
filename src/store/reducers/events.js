@@ -8,14 +8,22 @@ const initState = {
 
 const eventReducer = (state = initState, action) => {
 
+    let events;
+
     switch( action.type ){
 
         case "ADD_EVENT":
-            console.log("Adding Event");
-            break;
+            events = [...state.events, action.event];
+            return {
+                events
+            }
         case "DELETE_EVENT":
-            console.log("Deleting Event");
-            break;
+            events = state.events.filter(item => { return item.id !== action.id });
+            return {
+                ...state,
+                events
+            }
+            
 
     }
 

@@ -9,14 +9,19 @@ const initState = {
 
 const learnReducer = (state = initState, action) => {
 
+    let learnings;
+
     switch( action.type ){
 
         case "ADD_LEARNING":
-            console.log("Adding Learning");
-            break;
+            learnings = [...state.learnings, action.learning]
+            return {learnings}
         case "DELETE_LEARNING":
-            console.log("Deleting Learning");
-            break;
+            learnings = state.learnings.filter( item => { return item.id !== action.id } );
+            return {
+                ...state,
+                learnings
+            }
     }
 
     return state;
